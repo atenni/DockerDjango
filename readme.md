@@ -5,8 +5,8 @@ This repo contains a base `docker-compose` configuration for a generic Django
 app.
 
 
-Usage
------
+Quick start
+-----------
 
 **Development** (note: reads in `docker-compose.override.yml`):
 
@@ -23,6 +23,11 @@ docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
 
 # App will be accessible at <your docker machine's IP>:80 
 ```
+
+
+
+Usage
+-----
 
 Source code for the Django app should live within the `django/app_dir/` folder
 and include a `requirements.txt` in the top level directory (see also
@@ -44,6 +49,13 @@ Passwords and configuration are via environment variables (as per
 [Twelve-Factor App](http://12factor.net/config)) and should be stored in
 `secrets.env`. You can use `secrets.env.example` as a template to see which
 variables are expected (see also "Django settings" below).
+
+After the `app` service is built for the first time the following command
+needs to be run to populate database tables:
+
+```bash
+docker-compose run web /usr/local/bin/python manage.py migrate
+```
 
 [compose-doco]: https://docs.docker.com/compose/extends/#different-environments
 
@@ -98,4 +110,7 @@ TODOs
 - Run app via `gunicorn` or `uWSGI`
 - Include a data volume for static files
 - Include a SASS service to compile `.scss` files to `.css`
-- Use `django-environ` to simplify secrets.env 
+- Use `django-environ` to simplify secrets.env
+- Include `startup.sh` script in django image that checks if an environment
+  has been created and if not runs `python manage.py migrate`.
+
