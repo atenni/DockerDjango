@@ -30,12 +30,14 @@ and include a `requirements.txt` in the top level directory (see also
 
 ```
 ├── DockerDjango
-├── django
-│   ├── app_dir
-│   │   ├── django_project/    # Django project folder
-│   │   ├── manage.py          # manage.py file here
-│   │   └── requirements.txt   # requirements.txt file here
-│   └── Dockerfile
+│   ├── django
+│   │   ├── app_dir
+│   │   │   ├── django_project/    # Django project folder
+│   │   │   ├── manage.py          # manage.py file here
+│   │   │   └── requirements.txt   # requirements.txt file here
+│   │   └── Dockerfile
+│   ├── docker-compose.yml
+│   │
 ```
 
 Passwords and configuration are via environment variables (as per
