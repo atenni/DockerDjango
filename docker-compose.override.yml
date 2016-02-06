@@ -1,13 +1,15 @@
 # Development environment. Extends docker-compose.yml
 
-server:
-  ports:
-    - "8080:8080"
+#server:
+#  ports:
+#    - "8888:8888"
 
 
 app:
   command: python manage.py runserver 0.0.0.0:8080
   volumes:
-    - ./app_dir/:/app
+    - ./django/app_dir:/app
   environment:
     DJANGO_DEBUG: 'True'
+  ports:
+    - "8080:8080"
