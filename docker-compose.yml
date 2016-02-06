@@ -1,0 +1,17 @@
+# Base, canonical environment. Used by dev and production.
+
+db:
+  image: postgres:9.5
+  env_file: secrets.env
+
+
+server:
+  image: nginx:1.9
+
+
+app:
+  build: ./django
+  env_file: secrets.env
+  links:
+    - db
+    - server

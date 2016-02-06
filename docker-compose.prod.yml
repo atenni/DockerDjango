@@ -1,0 +1,9 @@
+# Production environment. Extends docker-compose.yml
+
+server:
+  ports:
+    - "80:8080"
+
+app:
+  environment:
+    DJANGO_DEBUG: 'False'
