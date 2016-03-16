@@ -8,7 +8,7 @@ app.
 Quick start
 -----------
 
-Create your `secrets.env` file (see below) and then...
+Create your `secrets.env` file and place your app within ./django/app_dir/ (see below). Then, depending on if you're _developing_ or sending to _production_...
 
 **Development** (note: reads in `docker-compose.override.yml`):
 
