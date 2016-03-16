@@ -8,6 +8,8 @@ app.
 Quick start
 -----------
 
+Create your `secrets.env` file (see below) and then...
+
 **Development** (note: reads in `docker-compose.override.yml`):
 
 ```
